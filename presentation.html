@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Forgotten Stop: Nishinari Ward</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #1a1a1a;
+    font-family: 'Helvetica Neue', 'Hiragino Sans', sans-serif;
+    color: #222;
+    overflow-x: hidden;
+  }
+  .deck {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 24px;
+  }
+  .slide {
+    width: 1280px;
+    height: 720px;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    display: flex;
+  }
+  .page-num {
+    position: absolute;
+    bottom: 24px;
+    right: 32px;
+    font-size: 14px;
+    color: #888;
+    letter-spacing: 2px;
+    z-index: 5;
+  }
+  .brand {
+    position: absolute;
+    top: 24px;
+    left: 32px;
+    font-size: 13px;
+    color: #b00;
+    letter-spacing: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    z-index: 5;
+  }
+
+  /* ---------- Cover ---------- */
+  .cover { position: relative; color: #fff; }
+  .cover .bg {
+    position: absolute; inset: 0;
+    background: url('西成區無家者(0).jpg') center/cover no-repeat;
+    filter: brightness(0.45);
+  }
+  .cover .overlay {
+    position: relative; z-index: 2;
+    padding: 90px 80px;
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .cover .tag {
+    font-size: 14px;
+    letter-spacing: 6px;
+    color: #f5c542;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .cover h1 {
+    font-size: 64px;
+    line-height: 1.15;
+    font-weight: 800;
+    max-width: 1000px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+  }
+  .cover h1 .accent { color: #f5c542; }
+  .cover .sub {
+    font-size: 20px; color: #ddd;
+    max-width: 800px; margin-top: 24px;
+    line-height: 1.5;
+  }
+  .cover .footer {
+    font-size: 14px; color: #ccc; letter-spacing: 2px;
+  }
+
+  /* ---------- Content slides ---------- */
+  .content { background: #fafafa; }
+  .content .left {
+    width: 52%;
+    padding: 70px 60px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+  .content .right {
+    width: 48%;
+    position: relative;
+    overflow: hidden;
+  }
+  .content .right .imgs {
+    width: 100%; height: 100%;
+    display: grid;
+    grid-template-rows: 1fr;
+  }
+  .content .right .imgs.two { grid-template-rows: 1fr 1fr; }
+  .content .right .imgs img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+  .content h2 {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #111;
+    margin-bottom: 18px;
+  }
+  .content h2 .red { color: #b00; }
+  .content .kicker {
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: #b00;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .content p {
+    font-size: 17px;
+    line-height: 1.65;
+    color: #333;
+    margin-bottom: 12px;
+  }
+  .content .stat-row {
+    display: flex; gap: 18px;
+    margin-top: 22px;
+  }
+  .content .stat {
+    background: #fff;
+    border-left: 4px solid #b00;
+    padding: 12px 14px;
+    flex: 1;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  .content .stat .num {
+    font-size: 26px; font-weight: 800;
+    color: #b00; line-height: 1;
+  }
+  .content .stat .lbl {
+    font-size: 12px; color: #666;
+    margin-top: 6px; line-height: 1.3;
+  }
+  .content ul { list-style: none; margin-top: 8px; }
+  .content ul li {
+    font-size: 16px; line-height: 1.55;
+    color: #333;
+    padding-left: 22px;
+    position: relative;
+    margin-bottom: 10px;
+  }
+  .content ul li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 9px;
+    width: 10px; height: 10px;
+    background: #f5c542;
+    border-left: 3px solid #b00;
+  }
+
+  /* ---------- Closing slide ---------- */
+  .closing { color: #fff; position: relative; }
+  .closing .bg {
+    position: absolute; inset: 0;
+    background: url('西成區工作者(4).jpg') center/cover no-repeat;
+    filter: brightness(0.4) saturate(1.1);
+  }
+  .closing .overlay {
+    position: relative; z-index: 2;
+    padding: 90px 100px;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+  .closing .kicker {
+    color: #f5c542;
+    font-size: 14px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .closing h2 {
+    font-size: 50px;
+    line-height: 1.3;
+    font-weight: 800;
+    max-width: 1050px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+  }
+  .closing h2 .accent { color: #f5c542; }
+  .closing .end {
+    margin-top: 60px;
+    font-size: 16px;
+    letter-spacing: 4px;
+    color: #ddd;
+  }
+</style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- ===== Cover (page 0) ===== -->
+  <section class="slide cover">
+    <div class="bg"></div>
+    <div class="overlay">
+      <div>
+        <div class="tag">Osaka · Nishinari Ward</div>
+        <h1>The Forgotten Stop:<br>Nishinari Ward and the<br><span class="accent">Human Cost</span> of Japan's Aging Crisis</h1>
+        <div class="sub">A neighborhood ten minutes from Dotonbori — and a window into the loneliest side of the world's most aged society.</div>
+      </div>
+      <div class="footer">ENGLISH PRESENTATION · COVER + 5 SLIDES</div>
+    </div>
+    <div class="page-num">COVER</div>
+  </section>
+
+  <!-- ===== Page 1 — Paragraph 1 (part 1): location & hub (1 image) ===== -->
+  <section class="slide content">
+    <div class="brand">01 · Ten Minutes from Dotonbori</div>
+    <div class="left">
+      <div class="kicker">A short ride · a different world</div>
+      <h2>Just south of Dotonbori,<br>a hub most people <span class="red">avoid</span>.</h2>
+      <p>Just ten minutes south of Dotonbori is <b>Shin-Imamiya Station</b> in Nishinari Ward.</p>
+      <p>It's a major transport hub — surrounded by some of the cheapest, and even <b>free</b>, hotels in Japan.</p>
+      <p>And yet, most people avoid it. To understand why, we first have to look at where it is — and what sits right next to one of Osaka's brightest tourist streets.</p>
+    </div>
+    <div class="right">
+      <div class="imgs">
+        <img src="與道頓堀距離(1).png" alt="Distance from Dotonbori to Shin-Imamiya">
+      </div>
+    </div>
+    <div class="page-num">01 / 05</div>
+  </section>
+
+  <!-- ===== Page 2 — Paragraph 1 (part 2): reputation & hidden story (2 images) ===== -->
+  <section class="slide content">
+    <div class="brand">02 · The Reputation, and What It Hides</div>
+    <div class="left">
+      <div class="kicker">Cheap rooms · a heavy name</div>
+      <h2>The most <span class="red">dangerous</span> name in Osaka.</h2>
+      <p>Nishinari is known as the most dangerous neighborhood in Osaka. It's tied to dirty streets and the <b>Tobita Shinchi</b> red-light district, and the name itself carries a sense of shame in Japan.</p>
+      <p>But behind that reputation is a story most people have never heard. In the tiny rooms of these cheap hotels, some residents die alone — with no one noticing.</p>
+      <p>This neighborhood tells us something important about Japan's aging crisis — and why it matters to all of us.</p>
+    </div>
+    <div class="right">
+      <div class="imgs two">
+        <img src="free hotel(1).png" alt="Free / cheap hotels in Nishinari">
+        <img src="Tobita Shinchi(1).jpg" alt="Tobita Shinchi red-light district">
+      </div>
+    </div>
+    <div class="page-num">02 / 05</div>
+  </section>
+
+  <!-- ===== Page 3 — Paragraph 2: aging crisis (1 image) ===== -->
+  <section class="slide content">
+    <div class="brand">03 · A Generation Left Behind</div>
+    <div class="left">
+      <div class="kicker">The world's most aged society</div>
+      <h2>They built modern Japan.<br>Now they grow old <span class="red">alone</span>.</h2>
+      <p>Japan is the world's most aged society — over <b>29%</b> of its people are 65 or older. After WWII, men came from all over Japan to Nishinari for work in construction, at the ports, and in factories. They built the roads and bridges of Japan's biggest economic boom.</p>
+      <p>But they were day laborers — no stable contracts, no pension, no family to return to. Now those same men are in their 70s and 80s, with no one to check if they're still alive.</p>
+      <div class="stat-row">
+        <div class="stat"><div class="num">40%+</div><div class="lbl">of Nishinari residents are 65 or older</div></div>
+        <div class="stat"><div class="num">#1</div><div class="lbl">highest lonely-death count in Osaka<br>(per Oshima Teru)</div></div>
+        <div class="stat"><div class="num">60,000+</div><div class="lbl">people die alone each year in Japan</div></div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="imgs">
+        <img src="Oshima Teru(2).png" alt="Oshima Teru, researcher on lonely deaths">
+      </div>
+    </div>
+    <div class="page-num">03 / 05</div>
+  </section>
+
+  <!-- ===== Page 4 — Paragraph 3: response (1 image) ===== -->
+  <section class="slide content">
+    <div class="brand">04 · So What Is Being Done?</div>
+    <div class="left">
+      <div class="kicker">Local response · regional reality</div>
+      <h2>Small acts against a <span class="red">quiet</span> crisis.</h2>
+      <ul>
+        <li><b>Government officers</b> visit elderly residents to check whether they are still alive and well.</li>
+        <li><b>Community groups like Cocoroom</b> run cafés where older men can come in and talk to someone.</li>
+        <li><b>Low rents and doya hotels</b> are kept open to house these men cheaply and stably.</li>
+      </ul>
+      <p style="margin-top:18px;">And this is not only Japan's problem. Across Asia — in <b>Japan, Taiwan, and South Korea</b> — millions gave their youth to build modern cities and economies. As they grow old, many face the same quiet ending as the men of Nishinari: no family nearby, dying alone.</p>
+    </div>
+    <div class="right">
+      <div class="imgs">
+        <img src="doya hotels(3).jpg" alt="Doya hotels in Nishinari">
+      </div>
+    </div>
+    <div class="page-num">04 / 05</div>
+  </section>
+
+  <!-- ===== Page 5 — Paragraph 4: closing (1 image, full-bleed) ===== -->
+  <section class="slide closing">
+    <div class="bg"></div>
+    <div class="overlay">
+      <div class="kicker">A question for our generation</div>
+      <h2>If we are the generation that will grow old in the <span class="accent">21st century</span>,<br><br>what kind of society do we want to build —<br>for ourselves, and for the people who <span class="accent">built everything before us</span>?</h2>
+      <div class="end">THANK YOU · 西成 NISHINARI</div>
+    </div>
+    <div class="page-num">05 / 05</div>
+  </section>
+
+</div>
+</body>
+</html>
