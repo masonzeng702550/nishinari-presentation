@@ -177,7 +177,7 @@
     position: absolute;
     top: 0; right: 0;
     width: 62%; height: 100%;
-    background: url('1a-map.png') center/cover no-repeat;
+    background: url('1c-tobita.jpg') center 20%/cover no-repeat;
   }
   .s-one .panel {
     position: absolute;
@@ -264,13 +264,10 @@
     object-fit: cover; display: block;
   }
   /* Free / cheap hotel: show the whole image (letterboxed on dark) */
-  .s-two .photos .pane img[src^="1b-free-hotel.png"] {
+  .s-two .photos .pane img[src^="1b-free-hotel.png"],
+  .s-two .photos .pane img[src="1a-map.png"] {
     object-fit: contain;
     background: #111;
-  }
-  /* Tobita Shinchi: nudged down from the top */
-  .s-two .photos .pane img[src="1c-tobita.jpg"] {
-    object-position: center 20%;
   }
   .s-two .photos .pane .lbl {
     position: absolute;
@@ -637,48 +634,48 @@
       <div class="page-num">COVER</div>
     </section>
 
-    <!-- ===== Page 1 — Photo-card with offset white panel ===== -->
-    <section class="slide s-one">
-      <div class="photo"></div>
-      <div class="jp-watermark">新今宮</div>
-      <div class="jp-vert-label jp-vertical">道頓堀の南、わずか十分。</div>
-      <div class="photo-caption">道頓堀 → 新今宮 · 10 min</div>
-      <div class="panel">
-        <div class="jp-hanko">西成</div>
-        <div class="kicker">A short ride · a different world</div>
-        <h2>Just south of Dotonbori,<br>a hub most people <span class="red">avoid</span>.</h2>
-        <p>Just ten minutes south of Dotonbori is <b>Shin-Imamiya Station</b> in Nishinari Ward.</p>
-        <p>It's a major transport hub — surrounded by some of the cheapest, and even <b>free</b>, hotels in Japan.</p>
-        <p>And yet, most people avoid it. To understand why, we first have to look at where it is — and what sits right next to one of Osaka's brightest tourist streets.</p>
-      </div>
-      <div class="jp-seigaiha"></div>
-      <div class="page-num">01 / 05 · 一</div>
-    </section>
-
-    <!-- ===== Page 2 — Diptych on top, text band below ===== -->
+    <!-- ===== Page 1 — Diptych on top, text band below ===== -->
     <section class="slide s-two">
-      <div class="jp-vert-label jp-vertical">あいりん地区 · 影</div>
+      <div class="jp-vert-label jp-vertical">道頓堀の南、わずか十分。</div>
       <div class="photos">
+        <div class="pane">
+          <img src="1a-map.png" alt="Distance from Dotonbori to Shin-Imamiya">
+          <div class="lbl">道頓堀 → 新今宮 · 10 min</div>
+        </div>
         <div class="pane">
           <img src="1b-free-hotel.png?v=2" alt="Free / cheap hotels in Nishinari">
           <div class="lbl">無料・格安宿 · Free &amp; cheap hotels</div>
         </div>
-        <div class="pane">
-          <img src="1c-tobita.jpg" alt="Tobita Shinchi red-light district">
-          <div class="lbl">飛田新地 · Tobita Shinchi</div>
-        </div>
       </div>
       <div class="text">
-        <div class="jp-watermark">影</div>
+        <div class="jp-watermark">南</div>
         <div>
-          <div class="kicker">Cheap rooms · a heavy name</div>
-          <h2>The most <span class="red">dangerous</span> name in Osaka.</h2>
+          <div class="kicker">A short ride · a different world</div>
+          <h2>Just south of Dotonbori,<br>a hub most people <span class="red">avoid</span>.</h2>
         </div>
         <div>
-          <p>Nishinari is known as the most dangerous neighborhood in Osaka. It's tied to dirty streets and the <b>Tobita Shinchi</b> red-light district, and the name itself carries a sense of shame in Japan.</p>
-          <p>But behind that reputation is a story most people have never heard. In the tiny rooms of these cheap hotels, some residents die alone — with no one noticing.</p>
+          <p>Just ten minutes south of Dotonbori is <b>Shin-Imamiya Station</b> in Nishinari Ward — a major transport hub surrounded by some of the cheapest, and even <b>free</b>, hotels in Japan.</p>
+          <p>And yet, most people avoid it. To understand why, we have to look at where it is — and what sits right next to one of Osaka's brightest tourist streets.</p>
         </div>
       </div>
+      <div class="page-num">01 / 05 · 一</div>
+    </section>
+
+    <!-- ===== Page 2 — Photo-card with offset white panel ===== -->
+    <section class="slide s-one">
+      <div class="photo"></div>
+      <div class="jp-watermark">影</div>
+      <div class="jp-vert-label jp-vertical">あいりん地区 · 影</div>
+      <div class="photo-caption">飛田新地 · Tobita Shinchi</div>
+      <div class="panel">
+        <div class="jp-hanko">飛田</div>
+        <div class="kicker">Cheap rooms · a heavy name</div>
+        <h2>The most <span class="red">dangerous</span> name in Osaka.</h2>
+        <p>Nishinari is known as the most dangerous neighborhood in Osaka. It's tied to dirty streets and the <b>Tobita Shinchi</b> red-light district, and the name itself carries a sense of shame in Japan.</p>
+        <p>But behind that reputation is a story most people have never heard. In the tiny rooms of these cheap hotels, some residents die alone — with no one noticing.</p>
+        <p>This neighborhood tells us something important about Japan's aging crisis — and why it matters to all of us.</p>
+      </div>
+      <div class="jp-seigaiha"></div>
       <div class="page-num">02 / 05 · 二</div>
     </section>
 
