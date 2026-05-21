@@ -254,7 +254,8 @@
     top: 0; left: 0; right: 0;
     height: 58%;
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    /* Left pane sized to match the map's 864×1128 aspect ratio at 417.6px tall */
+    grid-template-columns: 320px 1fr;
     gap: 0;
     background: #111;
   }
@@ -264,10 +265,10 @@
     object-fit: cover; display: block;
   }
   /* Free / cheap hotel: show the whole image (letterboxed on dark) */
-  /* Map (left pane): show the whole image */
+  /* Map (left pane): aspect matches pane, fills edge-to-edge */
   .s-two .photos .pane img[src^="1a-map.png"] {
-    object-fit: contain;
-    background: #111;
+    object-fit: cover;
+    object-position: center center;
   }
   /* Free hotel (wide right pane): zoom from center so top/bottom overflow */
   .s-two .photos .pane img[src^="1b-free-hotel.png"] {
