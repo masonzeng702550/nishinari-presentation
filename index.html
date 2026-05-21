@@ -254,7 +254,7 @@
     top: 0; left: 0; right: 0;
     height: 58%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 5fr;
     gap: 4px;
     background: #111;
   }
@@ -264,12 +264,12 @@
     object-fit: cover; display: block;
   }
   /* Free / cheap hotel: show the whole image (letterboxed on dark) */
-  /* Map: full-bleed, aligned to the left edge */
+  /* Map (narrow left pane): show the whole vertical map, no overflow */
   .s-two .photos .pane img[src="1a-map.png"] {
-    object-fit: cover;
-    object-position: left center;
+    object-fit: contain;
+    background: #111;
   }
-  /* Free hotel: zoom in centered so the top/bottom overflow the pane */
+  /* Free hotel (wide right pane): zoom from center so top/bottom overflow */
   .s-two .photos .pane img[src^="1b-free-hotel.png"] {
     object-fit: cover;
     object-position: center center;
