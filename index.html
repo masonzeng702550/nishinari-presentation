@@ -4,7 +4,73 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Forgotten Stop: Nishinari Ward</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;900&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --vermillion: #b8302a;
+    --vermillion-dark: #8b1e1a;
+    --sumi: #1d1816;
+    --kinari: #f5efe2;
+    --gold: #c9a44a;
+  }
+  /* ===== Japanese decorative helpers (used in slides 1-4) ===== */
+  .jp-font { font-family: 'Shippori Mincho', 'Noto Serif JP', 'Hiragino Mincho ProN', serif; font-feature-settings: "palt"; }
+  .jp-vertical {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family: 'Shippori Mincho', 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+    letter-spacing: 0.35em;
+    font-weight: 500;
+  }
+  .jp-watermark {
+    position: absolute;
+    font-family: 'Shippori Mincho', 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+    font-weight: 900;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+  .jp-hanko {
+    width: 70px; height: 70px;
+    background: var(--vermillion);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Shippori Mincho', 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: -1px;
+    line-height: 1;
+    transform: rotate(-6deg);
+    box-shadow: 0 0 0 3px rgba(184,48,42,0.18);
+    text-align: center;
+    border-radius: 4px;
+  }
+  .jp-hanko.round { border-radius: 50%; box-shadow: 0 0 0 3px rgba(184,48,42,0.25); }
+  /* seigaiha (wave) pattern strip */
+  .jp-seigaiha {
+    position: absolute;
+    background-color: transparent;
+    background-image:
+      radial-gradient(circle at 50% 100%, transparent 18px, var(--vermillion) 19px, var(--vermillion) 20px, transparent 21px),
+      radial-gradient(circle at 0 100%, transparent 18px, var(--vermillion) 19px, var(--vermillion) 20px, transparent 21px),
+      radial-gradient(circle at 100% 100%, transparent 18px, var(--vermillion) 19px, var(--vermillion) 20px, transparent 21px);
+    background-size: 40px 22px;
+    background-repeat: repeat-x;
+    opacity: 0.18;
+  }
+  /* asanoha-like pattern via repeating linear gradients */
+  .jp-asanoha {
+    position: absolute;
+    background-color: transparent;
+    background-image:
+      repeating-linear-gradient(60deg, rgba(184,48,42,0.07) 0 1px, transparent 1px 28px),
+      repeating-linear-gradient(-60deg, rgba(184,48,42,0.07) 0 1px, transparent 1px 28px),
+      repeating-linear-gradient(0deg, rgba(184,48,42,0.07) 0 1px, transparent 1px 28px);
+    pointer-events: none;
+  }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body {
     width: 100%; height: 100%;
@@ -128,9 +194,32 @@
     position: absolute;
     right: -6px; top: 90px;
     width: 6px; height: 120px;
-    background: #b00;
+    background: var(--vermillion);
   }
-  .s-one .kicker { color: #b00; }
+  .s-one .kicker { color: var(--vermillion); }
+  .s-one .jp-watermark {
+    top: 60px; right: 30px;
+    font-size: 240px;
+    color: rgba(255,255,255,0.55);
+    z-index: 2;
+    writing-mode: vertical-rl;
+  }
+  .s-one .jp-vert-label {
+    position: absolute;
+    top: 70px; left: 562px;
+    color: #555;
+    font-size: 18px;
+    z-index: 4;
+  }
+  .s-one .jp-hanko {
+    position: absolute;
+    top: 36px; right: 60px;
+    z-index: 5;
+  }
+  .s-one .jp-seigaiha {
+    bottom: 0; left: 0;
+    width: 562px; height: 22px;
+  }
   .s-one h2 {
     font-size: 42px;
     line-height: 1.15;
@@ -201,8 +290,28 @@
     line-height: 1.15;
     font-weight: 800;
   }
-  .s-two .text h2 .red { color: #b00; }
-  .s-two .text .kicker { color: #b00; }
+  .s-two .text h2 .red { color: var(--vermillion); }
+  .s-two .text .kicker { color: var(--vermillion); }
+  .s-two .jp-watermark {
+    right: 40px; bottom: 18px;
+    font-size: 200px;
+    color: rgba(184,48,42,0.08);
+    z-index: 1;
+  }
+  .s-two .jp-vert-label {
+    position: absolute;
+    top: 22px; right: 30px;
+    color: rgba(255,255,255,0.75);
+    font-size: 15px;
+    z-index: 6;
+  }
+  .s-two .text::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 70px;
+    width: 60px; height: 4px;
+    background: var(--vermillion);
+  }
   .s-two .text p {
     font-size: 15.5px;
     line-height: 1.6;
@@ -244,13 +353,40 @@
   .s-three .head .portrait .tag {
     position: absolute;
     bottom: -12px; left: -12px;
-    background: #b00;
+    background: var(--vermillion);
     color: #fff;
     padding: 6px 12px;
     font-size: 11px;
     letter-spacing: 3px;
     text-transform: uppercase;
     font-weight: 700;
+  }
+  .s-three .head .portrait .jp-hanko {
+    position: absolute;
+    top: -18px; right: -18px;
+    z-index: 2;
+  }
+  .s-three .jp-watermark {
+    top: 40px; right: 40px;
+    font-size: 280px;
+    color: rgba(184,48,42,0.06);
+    z-index: 0;
+  }
+  .s-three .jp-vert-label {
+    position: absolute;
+    top: 80px; left: 30px;
+    color: var(--vermillion);
+    font-size: 16px;
+    z-index: 5;
+  }
+  .s-three .stat .num { font-family: 'Shippori Mincho','Noto Serif JP',serif; }
+  .s-three .stat .jp-sub {
+    font-family: 'Shippori Mincho','Noto Serif JP',serif;
+    font-size: 14px;
+    color: var(--vermillion);
+    letter-spacing: 4px;
+    margin-top: 4px;
+    font-weight: 500;
   }
   .s-three .stats {
     position: absolute;
@@ -322,11 +458,36 @@
   }
   .s-four .head h2 .accent { color: #f5c542; }
   .s-four .card {
-    background: rgba(255,255,255,0.97);
+    background: rgba(255,253,247,0.97);
     color: #222;
     padding: 40px 42px;
     box-shadow: 0 12px 40px rgba(0,0,0,0.45);
-    border-top: 6px solid #b00;
+    border-top: 6px solid var(--vermillion);
+    position: relative;
+    overflow: hidden;
+  }
+  .s-four .card .jp-asanoha {
+    inset: 0;
+    opacity: 0.7;
+  }
+  .s-four .card > * { position: relative; z-index: 1; }
+  .s-four .jp-watermark {
+    bottom: 30px; right: 60px;
+    font-size: 240px;
+    color: rgba(245,197,66,0.12);
+    z-index: 2;
+  }
+  .s-four .jp-vert-label {
+    position: absolute;
+    top: 80px; right: 40px;
+    color: #f5c542;
+    font-size: 17px;
+    z-index: 5;
+  }
+  .s-four .card .jp-hanko {
+    position: absolute;
+    top: -14px; right: -14px;
+    z-index: 3;
   }
   .s-four .card ul { list-style: none; }
   .s-four .card ul li {
@@ -494,33 +655,39 @@
 
     <!-- ===== Page 1 — Photo-card with offset white panel ===== -->
     <section class="slide s-one">
-      <div class="brand">01 · Ten Minutes from Dotonbori</div>
+      <div class="brand">一 · Ten Minutes from Dotonbori</div>
       <div class="photo"></div>
-      <div class="photo-caption">Map · Dotonbori → Shin-Imamiya</div>
+      <div class="jp-watermark">新今宮</div>
+      <div class="jp-vert-label jp-vertical">道頓堀の南、わずか十分。</div>
+      <div class="photo-caption">道頓堀 → 新今宮 · 10 min</div>
       <div class="panel">
+        <div class="jp-hanko">西成</div>
         <div class="kicker">A short ride · a different world</div>
         <h2>Just south of Dotonbori,<br>a hub most people <span class="red">avoid</span>.</h2>
         <p>Just ten minutes south of Dotonbori is <b>Shin-Imamiya Station</b> in Nishinari Ward.</p>
         <p>It's a major transport hub — surrounded by some of the cheapest, and even <b>free</b>, hotels in Japan.</p>
         <p>And yet, most people avoid it. To understand why, we first have to look at where it is — and what sits right next to one of Osaka's brightest tourist streets.</p>
       </div>
-      <div class="page-num">01 / 05</div>
+      <div class="jp-seigaiha"></div>
+      <div class="page-num">01 / 05 · 一</div>
     </section>
 
     <!-- ===== Page 2 — Diptych on top, text band below ===== -->
     <section class="slide s-two">
-      <div class="brand">02 · The Reputation, and What It Hides</div>
+      <div class="brand">二 · The Reputation, and What It Hides</div>
+      <div class="jp-vert-label jp-vertical">あいりん地区 · 影</div>
       <div class="photos">
         <div class="pane">
           <img src="1b-free-hotel.png" alt="Free / cheap hotels in Nishinari">
-          <div class="lbl">Free &amp; cheap hotels</div>
+          <div class="lbl">無料・格安宿 · Free &amp; cheap hotels</div>
         </div>
         <div class="pane">
           <img src="1c-tobita.jpg" alt="Tobita Shinchi red-light district">
-          <div class="lbl">Tobita Shinchi district</div>
+          <div class="lbl">飛田新地 · Tobita Shinchi</div>
         </div>
       </div>
       <div class="text">
+        <div class="jp-watermark">影</div>
         <div>
           <div class="kicker">Cheap rooms · a heavy name</div>
           <h2>The most <span class="red">dangerous</span> name in Osaka.</h2>
@@ -530,25 +697,29 @@
           <p>But behind that reputation is a story most people have never heard. In the tiny rooms of these cheap hotels, some residents die alone — with no one noticing.</p>
         </div>
       </div>
-      <div class="page-num">02 / 05</div>
+      <div class="page-num">02 / 05 · 二</div>
     </section>
 
     <!-- ===== Page 3 — Headline + portrait, big stat wall ===== -->
     <section class="slide s-three">
-      <div class="brand">03 · A Generation Left Behind</div>
+      <div class="brand">三 · A Generation Left Behind</div>
+      <div class="jp-watermark">老</div>
+      <div class="jp-vert-label jp-vertical">高齢化社会 · 孤独死</div>
       <div class="head">
         <div class="text">
           <div class="kicker">The world's most aged society</div>
           <h2>They built modern Japan.<br>Now they grow old <span class="red">alone</span>.</h2>
         </div>
         <div class="portrait">
-          <div class="tag">Oshima Teru</div>
+          <div class="jp-hanko round">大島</div>
+          <div class="tag">大島輝 · Oshima Teru</div>
         </div>
       </div>
       <div class="stats">
         <div class="stat">
           <div>
             <div class="num">29%+</div>
+            <div class="jp-sub">高齢者</div>
             <div class="lead">Aged 65 or older</div>
           </div>
           <div class="desc">Japan is the world's most aged society — more than one in four are seniors.</div>
@@ -556,6 +727,7 @@
         <div class="stat">
           <div>
             <div class="num">40%+</div>
+            <div class="jp-sub">西成区</div>
             <div class="lead">Nishinari Ward</div>
           </div>
           <div class="desc">Of Nishinari residents are 65 or older — the highest concentration in Osaka.</div>
@@ -563,24 +735,29 @@
         <div class="stat">
           <div>
             <div class="num">60,000+</div>
+            <div class="jp-sub">孤独死 / 年</div>
             <div class="lead">Lonely deaths / year</div>
           </div>
           <div class="desc">People who die alone every year across Japan, with no one noticing.</div>
         </div>
       </div>
-      <div class="page-num">03 / 05</div>
+      <div class="page-num">03 / 05 · 三</div>
     </section>
 
     <!-- ===== Page 4 — Full-bleed photo + manifesto card ===== -->
     <section class="slide s-four">
       <div class="bg"></div>
-      <div class="brand">04 · So What Is Being Done?</div>
+      <div class="brand">四 · So What Is Being Done?</div>
+      <div class="jp-watermark">支</div>
+      <div class="jp-vert-label jp-vertical">見守り · 支え合い</div>
       <div class="grid">
         <div class="head">
           <div class="kicker">Local response · regional reality</div>
           <h2>Small acts against a <span class="accent">quiet</span> crisis.</h2>
         </div>
         <div class="card">
+          <div class="jp-asanoha"></div>
+          <div class="jp-hanko">支援</div>
           <ul>
             <li><b>Government officers</b> visit elderly residents to check whether they are still alive and well.</li>
             <li><b>Community groups like Cocoroom</b> run cafés where older men can come in and talk to someone.</li>
@@ -589,7 +766,7 @@
           <div class="closer">This is not only Japan's problem. Across Asia — Japan, Taiwan, and South Korea — millions gave their youth to build modern cities and economies. As they grow old, many face the same quiet ending.</div>
         </div>
       </div>
-      <div class="page-num">04 / 05</div>
+      <div class="page-num">04 / 05 · 四</div>
     </section>
 
     <!-- ===== Page 5 — Closing question ===== -->
