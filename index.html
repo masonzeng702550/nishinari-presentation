@@ -263,6 +263,15 @@
     width: 100%; height: 100%;
     object-fit: cover; display: block;
   }
+  /* Free / cheap hotel: show the whole image (letterboxed on dark) */
+  .s-two .photos .pane img[src="1b-free-hotel.png"] {
+    object-fit: contain;
+    background: #111;
+  }
+  /* Tobita Shinchi: align to the top edge */
+  .s-two .photos .pane img[src="1c-tobita.jpg"] {
+    object-position: center top;
+  }
   .s-two .photos .pane .lbl {
     position: absolute;
     bottom: 14px; left: 16px;
