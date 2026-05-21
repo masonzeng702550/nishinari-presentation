@@ -264,10 +264,10 @@
     object-fit: cover; display: block;
   }
   /* Free / cheap hotel: show the whole image (letterboxed on dark) */
-  /* Map (narrow left pane): show the whole vertical map, no overflow */
-  .s-two .photos .pane img[src="1a-map.png"] {
-    object-fit: contain;
-    background: #111;
+  /* Map (narrow left pane): full-bleed */
+  .s-two .photos .pane img[src^="1a-map.png"] {
+    object-fit: cover;
+    object-position: center center;
   }
   /* Free hotel (wide right pane): zoom from center so top/bottom overflow */
   .s-two .photos .pane img[src^="1b-free-hotel.png"] {
@@ -644,7 +644,7 @@
       <div class="jp-vert-label jp-vertical">道頓堀の南、わずか十分。</div>
       <div class="photos">
         <div class="pane">
-          <img src="1a-map.png" alt="Distance from Dotonbori to Shin-Imamiya">
+          <img src="1a-map.png?v=2" alt="Distance from Dotonbori to Shin-Imamiya">
           <div class="lbl">道頓堀 → 新今宮 · 10 min</div>
         </div>
         <div class="pane">
