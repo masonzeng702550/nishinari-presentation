@@ -264,10 +264,15 @@
     object-fit: cover; display: block;
   }
   /* Free / cheap hotel: show the whole image (letterboxed on dark) */
-  .s-two .photos .pane img[src^="1b-free-hotel.png"],
+  /* Map: full-bleed, aligned to the left edge */
   .s-two .photos .pane img[src="1a-map.png"] {
-    object-fit: contain;
-    background: #111;
+    object-fit: cover;
+    object-position: left center;
+  }
+  /* Free hotel: zoom in centered so the top/bottom overflow the pane */
+  .s-two .photos .pane img[src^="1b-free-hotel.png"] {
+    object-fit: cover;
+    object-position: center center;
   }
   .s-two .photos .pane .lbl {
     position: absolute;
