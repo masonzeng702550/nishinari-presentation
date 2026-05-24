@@ -534,6 +534,268 @@
   }
 
   /* ===========================================================
+     EXTRA SLIDE — History timeline (Built by Forgotten Hands)
+     =========================================================== */
+  .s-history { background: #1a1410; color: #fff; }
+  .s-history .grid {
+    position: absolute; inset: 0;
+    padding: 80px 70px;
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    gap: 60px;
+    z-index: 2;
+  }
+  .s-history .left {
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .s-history .kicker {
+    color: var(--vermillion);
+    font-size: 12px;
+    letter-spacing: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .s-history h2 {
+    font-size: 54px;
+    line-height: 1.05;
+    font-weight: 900;
+    letter-spacing: -1px;
+  }
+  .s-history h2 .accent { color: var(--vermillion); }
+  .s-history .lead {
+    color: #ccc;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 22px;
+    max-width: 380px;
+  }
+  .s-history .timeline {
+    position: relative;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    padding-left: 36px;
+  }
+  .s-history .timeline::before {
+    content: "";
+    position: absolute;
+    left: 6px; top: 24px; bottom: 24px;
+    width: 2px;
+    background: rgba(184,48,42,0.4);
+  }
+  .s-history .timeline .item {
+    position: relative;
+    padding: 10px 0 14px;
+  }
+  .s-history .timeline .item::before {
+    content: "";
+    position: absolute;
+    left: -36px; top: 16px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--vermillion);
+    box-shadow: 0 0 0 4px rgba(184,48,42,0.2);
+  }
+  .s-history .timeline .year {
+    font-family: 'Shippori Mincho', 'Noto Serif JP', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--vermillion);
+    letter-spacing: 1px;
+  }
+  .s-history .timeline .desc {
+    color: #ddd;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-top: 4px;
+  }
+  .s-history .jp-watermark {
+    font-size: 280px;
+    color: rgba(184,48,42,0.07);
+    top: 30px; right: 50px;
+    z-index: 0;
+    writing-mode: vertical-rl;
+  }
+  .s-history .jp-vert-label {
+    position: absolute;
+    bottom: 40px; left: 28px;
+    color: var(--vermillion);
+    font-size: 15px;
+    z-index: 5;
+  }
+
+  /* ===========================================================
+     EXTRA SLIDE — A Life Without an Address (doya facts)
+     =========================================================== */
+  .s-life {
+    background: var(--kinari);
+    color: #1d1816;
+    position: relative;
+  }
+  .s-life .container {
+    position: absolute; inset: 0;
+    padding: 80px 80px;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    z-index: 2;
+  }
+  .s-life .kicker {
+    font-size: 12px;
+    letter-spacing: 4px;
+    font-weight: 700;
+    color: var(--vermillion);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .s-life h2 {
+    font-size: 58px;
+    line-height: 1.05;
+    font-weight: 900;
+    color: #1d1816;
+    letter-spacing: -1px;
+    max-width: 900px;
+  }
+  .s-life h2 .accent { color: var(--vermillion); }
+  .s-life .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    margin-top: 48px;
+  }
+  .s-life .item {
+    border-top: 4px solid var(--vermillion);
+    padding-top: 18px;
+  }
+  .s-life .item .big {
+    font-family: 'Shippori Mincho', 'Noto Serif JP', serif;
+    font-size: 60px;
+    font-weight: 900;
+    line-height: 1;
+    color: #1d1816;
+    letter-spacing: -2px;
+  }
+  .s-life .item .unit {
+    font-size: 12px;
+    color: var(--vermillion);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 10px;
+  }
+  .s-life .item .desc {
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: #444;
+    margin-top: 12px;
+  }
+  .s-life .jp-watermark {
+    font-size: 320px;
+    color: rgba(184,48,42,0.05);
+    bottom: -60px; right: 30px;
+    z-index: 0;
+  }
+  .s-life .jp-vert-label {
+    position: absolute;
+    top: 80px; right: 40px;
+    color: var(--vermillion);
+    font-size: 15px;
+    z-index: 5;
+  }
+
+  /* ===========================================================
+     EXTRA SLIDE — Not Only Japan (regional comparison)
+     =========================================================== */
+  .s-asia {
+    background: linear-gradient(135deg, #faf6ed 0%, #f0e3c2 100%);
+    position: relative;
+  }
+  .s-asia .head {
+    position: absolute;
+    top: 60px; left: 70px; right: 70px;
+    z-index: 2;
+  }
+  .s-asia .head .kicker {
+    font-size: 12px;
+    letter-spacing: 4px;
+    font-weight: 700;
+    color: var(--vermillion);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .s-asia .head h2 {
+    font-size: 46px;
+    line-height: 1.1;
+    font-weight: 900;
+    color: #1d1816;
+    letter-spacing: -1px;
+  }
+  .s-asia .head h2 .accent { color: var(--vermillion); }
+  .s-asia .head .lead {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+    margin-top: 14px;
+    max-width: 880px;
+  }
+  .s-asia .countries {
+    position: absolute;
+    bottom: 70px; left: 70px; right: 70px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 26px;
+    z-index: 2;
+  }
+  .s-asia .country {
+    background: #fff;
+    padding: 28px 26px 26px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    border-top: 6px solid var(--vermillion);
+    position: relative;
+  }
+  .s-asia .country .flag {
+    font-family: 'Shippori Mincho', 'Noto Serif JP', serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--vermillion);
+  }
+  .s-asia .country .name {
+    font-size: 24px;
+    font-weight: 900;
+    color: #1d1816;
+    margin-top: 4px;
+  }
+  .s-asia .country .stat {
+    margin-top: 18px;
+    font-family: 'Shippori Mincho', 'Noto Serif JP', serif;
+    font-size: 50px;
+    font-weight: 900;
+    color: var(--vermillion);
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+  .s-asia .country .label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #888;
+    text-transform: uppercase;
+    margin-top: 8px;
+    font-weight: 700;
+  }
+  .s-asia .country .note {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.5;
+    margin-top: 12px;
+  }
+  .s-asia .jp-watermark {
+    font-size: 280px;
+    color: rgba(184,48,42,0.05);
+    top: -20px; right: 40px;
+    z-index: 0;
+  }
+
+  /* ===========================================================
      SLIDE 6 — Closing thank-you (full-bleed)
      =========================================================== */
   .s-six { color: #fff; }
@@ -637,7 +899,38 @@
     <div class="jp-seigaiha"></div>
   </section>
 
-  <!-- ===== Page 3 — Headline + portrait + stat wall ===== -->
+  <!-- ===== Page 3 — Built by Forgotten Hands (history timeline) ===== -->
+  <section class="slide s-history">
+    <div class="jp-watermark">建</div>
+    <div class="jp-vert-label jp-vertical">戦後 · 高度経済成長</div>
+    <div class="grid">
+      <div class="left">
+        <div class="kicker">Post-war Japan · 戦後復興</div>
+        <h2>Built by<br><span class="accent">forgotten</span> hands.</h2>
+        <div class="lead">They came north from all over Japan to rebuild a broken country — then watched it forget them.</div>
+      </div>
+      <div class="timeline">
+        <div class="item">
+          <div class="year">1945</div>
+          <div class="desc">Japan ends the war in ruins. Cities flattened. A massive labor force is needed to rebuild.</div>
+        </div>
+        <div class="item">
+          <div class="year">1955 – 1973</div>
+          <div class="desc">The economic miracle. Day laborers flood into Nishinari to build highways, harbors, factories — the spine of modern Japan.</div>
+        </div>
+        <div class="item">
+          <div class="year">1990s</div>
+          <div class="desc">The bubble bursts. Construction work dries up. The men stay; the contracts don't.</div>
+        </div>
+        <div class="item">
+          <div class="year">TODAY</div>
+          <div class="desc">The same men are now in their 70s and 80s — without family, pension, or anyone who knows their name.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Page 4 — Headline + portrait + stat wall ===== -->
   <section class="slide s-three">
     <div class="jp-watermark">老</div>
     <div class="jp-vert-label jp-vertical">高齢化社会 · 孤独死</div>
@@ -678,7 +971,34 @@
     </div>
   </section>
 
-  <!-- ===== Page 4 — Classic content (text left, image right) ===== -->
+  <!-- ===== Page 5 — A Life Without an Address (doya facts) ===== -->
+  <section class="slide s-life">
+    <div class="jp-watermark">宿</div>
+    <div class="jp-vert-label jp-vertical">簡易宿所 · ドヤ</div>
+    <div class="container">
+      <div class="kicker">Doya · 簡易宿所</div>
+      <h2>A life without<br>an <span class="accent">address</span>.</h2>
+      <div class="grid">
+        <div class="item">
+          <div class="big">¥800</div>
+          <div class="unit">per night</div>
+          <div class="desc">A bed in a doya hotel — cheaper than a meal in Dotonbori.</div>
+        </div>
+        <div class="item">
+          <div class="big">2 畳</div>
+          <div class="unit">≈ 3.3 m²</div>
+          <div class="desc">The size of a typical doya room — just enough for a futon, a TV, and the silence.</div>
+        </div>
+        <div class="item">
+          <div class="big">0</div>
+          <div class="unit">family · records · ties</div>
+          <div class="desc">When the rent stops coming, often no one knows where to send the news — or who to tell.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Page 6 — Classic content (text left, image right) ===== -->
   <section class="slide s-four">
     <div class="left">
       <div class="kicker">Local response · regional reality</div>
@@ -697,7 +1017,40 @@
     </div>
   </section>
 
-  <!-- ===== Page 5 — Closing question ===== -->
+  <!-- ===== Page 7 — Not Only Japan (regional comparison) ===== -->
+  <section class="slide s-asia">
+    <div class="jp-watermark">亞</div>
+    <div class="head">
+      <div class="kicker">Across Asia · アジア共通の課題</div>
+      <h2>Not only <span class="accent">Japan</span>.</h2>
+      <div class="lead">From Osaka to Taipei to Seoul — the workers who built the modern Asian economy are growing old together. And often, alone.</div>
+    </div>
+    <div class="countries">
+      <div class="country">
+        <div class="flag">日 本</div>
+        <div class="name">Japan</div>
+        <div class="stat">29%</div>
+        <div class="label">Aged 65+</div>
+        <div class="note">The world's oldest society — and over 60,000 lonely deaths each year.</div>
+      </div>
+      <div class="country">
+        <div class="flag">臺 灣</div>
+        <div class="name">Taiwan</div>
+        <div class="stat">19%</div>
+        <div class="label">Aged 65+ · 2024</div>
+        <div class="note">Crossing the super-aged threshold by 2025 — the fastest pace of aging in Asia.</div>
+      </div>
+      <div class="country">
+        <div class="flag">韓 國</div>
+        <div class="name">South Korea</div>
+        <div class="stat">20%</div>
+        <div class="label">Aged 65+ · 2024</div>
+        <div class="note">Officially super-aged in 2024 — combined with the lowest birth rate in the world.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Page 8 — Closing question ===== -->
   <section class="slide s-five">
     <div class="bg"></div>
     <div class="overlay">
